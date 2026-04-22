@@ -153,7 +153,7 @@
       <input type="hidden" name="_subject" value="New CTG Referral Submission">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://giovany07.github.io/ctg/thank-you.html">
+      <input type="hidden" name="_next" value="https://concussiontherapygroup.github.io/ctgreferrals/thank-you.html">
       <input type="hidden" name="Submission ID" id="submission_id">
 
       <!-- ── STEP 1: Referral Details ── -->
@@ -545,18 +545,18 @@ function draw() {
     if (p.y < 0 || p.y > h) p.vy *= -1;
     ctx.beginPath();
     ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-    ctx.fillStyle = 'rgba(0,194,201,.8)';
+    ctx.fillStyle = 'rgba(88,196,255,.9)';
     ctx.fill();
     for (let j = i + 1; j < pts.length; j++) {
       const q  = pts[j];
       const dx = p.x - q.x, dy = p.y - q.y;
       const d  = Math.sqrt(dx*dx + dy*dy);
-      if (d < 140) {
+      if (d < 150) {
         ctx.beginPath();
         ctx.moveTo(p.x, p.y);
         ctx.lineTo(q.x, q.y);
-        ctx.strokeStyle = `rgba(0,194,201,${(1 - d/140) * .28})`;
-        ctx.lineWidth   = .8;
+        ctx.strokeStyle = `rgba(88,196,255,${(1 - d / 150) * .35})`;
+        ctx.lineWidth = 1;
         ctx.stroke();
       }
     }
