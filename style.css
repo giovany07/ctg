@@ -153,7 +153,7 @@ header {
   display: flex;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(90deg, #08162E 0%, #0F2557 32%, #18489D 68%, #5AA5FF 100%);
+  background: radial-gradient(circle at top right, #4ea6ff 0%, #1d5eb8 35%, #0a2f73 70%, #072663 100%);
 }
 
 /* Subtle grain texture */
@@ -161,8 +161,17 @@ header {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
-  opacity: .025;
+  opacity: .35;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,255,255,.8) 0 2px, transparent 3px),
+    radial-gradient(circle at 30% 40%, rgba(255,255,255,.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 25%, rgba(255,255,255,.7) 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 60%, rgba(255,255,255,.7) 0 2px, transparent 3px),
+    linear-gradient(25deg, transparent 24%, rgba(255,255,255,.25) 25%, rgba(255,255,255,.25) 26%, transparent 27%),
+    linear-gradient(65deg, transparent 34%, rgba(255,255,255,.18) 35%, rgba(255,255,255,.18) 36%, transparent 37%),
+    linear-gradient(115deg, transparent 44%, rgba(255,255,255,.18) 45%, rgba(255,255,255,.18) 46%, transparent 47%);
+  background-size: 100% 100%;
+  animation: bgmove 14s linear infinite;
   pointer-events: none;
   z-index: 1;
 }
@@ -171,13 +180,10 @@ header {
 .hero::after {
   content: '';
   position: absolute;
-  top: -120px;
-  right: 0;
-  width: 820px;
-  height: 820px;
-  background: radial-gradient(circle, rgba(90,165,255,.22) 0%, rgba(90,165,255,.10) 30%, transparent 68%);
+  inset: 0;
   pointer-events: none;
   z-index: 1;
+  background: transparent;
 }
 
 #network {
@@ -230,9 +236,9 @@ header {
 }
 
 .hero h1 em {
-  font-style: italic;
-  font-weight: 300;
-  color: var(--teal);
+  font-style: normal;
+  font-weight: 700;
+  color: #fff;
 }
 
 .hero-sub {
